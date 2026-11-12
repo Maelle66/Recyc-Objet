@@ -117,6 +117,14 @@
    * Charge les données locales d'objets depuis objets.json
    */
   async function chargerDonnees() {
+    // Si la page est ouverte directement depuis le système de fichiers (protocole file://),
+    // les navigateurs bloquent fetch() par mesure de sécurité CORS (origin 'null').
+    // On utilise directement les données locales intégrées pour éviter toute erreur réseau en console.
+    if (window.location.protocol === 'file:') {
+      listeObjets = DONNEES_FALLBACK;
+      return;
+    }
+
     try {
       const response = await fetch('./objets.json');
       if (response.ok) {
@@ -124,7 +132,7 @@
         return;
       }
     } catch (e) {
-      console.warn("Données chargées depuis le jeu local intégré :", e);
+      // Repli si le serveur HTTP local rencontre une anomalie
     }
     listeObjets = DONNEES_FALLBACK;
   }
