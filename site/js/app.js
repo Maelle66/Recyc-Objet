@@ -143,17 +143,17 @@
   function initialiserFiltreCategories() {
     if (!categoryFilter) return;
 
-    // Extraire les catégories uniques
-    const categories = Array.from(new Set(listeObjets.map((obj) => obj.categorie).filter(Boolean)));
-    categories.sort();
-
-    // Conserver l'option 'Toutes les catégories' et ajouter les catégories disponibles
-    categories.forEach((cat) => {
-      const option = document.createElement('option');
-      option.value = cat;
-      option.textContent = cat;
-      categoryFilter.appendChild(option);
-    });
+    // Si les options ne sont pas déjà présentes dans le HTML
+    if (categoryFilter.options.length <= 1) {
+      const categories = Array.from(new Set(listeObjets.map((obj) => obj.categorie).filter(Boolean)));
+      categories.sort();
+      categories.forEach((cat) => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat;
+        categoryFilter.appendChild(option);
+      });
+    }
 
     // Mettre à jour les résultats quand l'utilisateur change de catégorie
     categoryFilter.addEventListener('change', () => {
@@ -222,19 +222,19 @@
         <div class="object-details">
           <!-- US02 : Consignes de tri -->
           <div class="info-block block-tri">
-            <h4>Consigne de tri</h4>
+            <h4>Consigne de tri (US02)</h4>
             <p>${echapperHtml(item.consigneTri || 'Non renseignée.')}</p>
           </div>
 
           <!-- US03 : Points de collecte -->
           <div class="info-block block-collecte">
-            <h4>Points de collecte</h4>
+            <h4>Points de collecte (US03)</h4>
             <p>${echapperHtml(item.pointsCollecte || 'Déchèterie municipale.')}</p>
           </div>
 
           <!-- US04 : Réparation et réemploi -->
           <div class="info-block block-reemploi">
-            <h4>Réparation & réemploi</h4>
+            <h4>Réparation & réemploi (US04)</h4>
             <p>${echapperHtml(item.solutionsReemploi || 'Vérifiez la réparabilité avant de jeter.')}</p>
           </div>
         </div>

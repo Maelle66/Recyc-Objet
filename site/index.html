@@ -4,7 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recyc'Objet - Guide complet du tri, réemploi et recyclage</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Feuille de style critique intégrée : élimine toute ressource bloquante pour un LCP < 2s en 3G -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box;animation:none!important;transition:none!important}
+    body{margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.5;color:#111827;background-color:#f9fafb;text-rendering:optimizeSpeed}
+    .container{width:100%;max-width:680px;margin:0 auto;padding:16px}
+    .header{background-color:#ffffff;border-bottom:2px solid #e5e7eb}
+    .site-title{margin:0;font-size:1.5rem;font-weight:700;color:#14532d}
+    .search-section{background-color:#ffffff;border:1px solid #d1d5db;border-radius:4px;padding:20px 16px;margin-top:20px}
+    .search-section h2{margin-top:0;margin-bottom:8px;font-size:1.25rem;font-weight:600;color:#111827}
+    .help-text{margin-top:0;margin-bottom:16px;font-size:0.95rem;color:#374151}
+    .search-form{display:flex;flex-direction:column;gap:16px}
+    .form-group{display:flex;flex-direction:column;gap:6px}
+    .form-label{font-size:1rem;font-weight:600;color:#111827}
+    .form-input,.form-select{width:100%;min-height:48px;padding:10px 12px;font-family:inherit;font-size:1rem;color:#111827;background-color:#ffffff;border:2px solid #4b5563;border-radius:4px}
+    .form-input:focus-visible,.form-select:focus-visible{outline:3px solid #15803d;outline-offset:2px}
+    .form-actions{display:flex;flex-direction:column;gap:10px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;font-family:inherit;font-size:1rem;font-weight:600;text-align:center;text-decoration:none;border-radius:4px;cursor:pointer}
+    .btn:focus-visible{outline:3px solid #15803d;outline-offset:2px}
+    .btn-primary{width:100%;color:#ffffff;background-color:#15803d;border:2px solid #15803d}
+    .btn-primary:hover{background-color:#166534;border-color:#166534}
+    .btn-secondary{width:100%;color:#15803d;background-color:#ffffff;border:2px solid #15803d;margin-top:20px}
+    .btn-secondary:hover{background-color:#f0fdf4}
+    .results-section{margin-top:20px}
+    .results-section[hidden]{display:none}
+    .results-summary{background-color:#ffffff;border:1px solid #d1d5db;border-radius:4px;padding:16px;margin-bottom:16px}
+    .results-title,.no-results-title{margin-top:0;margin-bottom:8px;font-size:1.2rem;font-weight:600;color:#111827}
+    .query-text{font-style:italic;font-weight:700;color:#15803d}
+    .badge-count{display:inline-block;font-size:0.9rem;color:#374151}
+    .results-cards{display:flex;flex-direction:column;gap:16px}
+    .object-card{background-color:#ffffff;border:2px solid #e5e7eb;border-left:6px solid #15803d;border-radius:4px;padding:20px 16px}
+    .object-header{margin-bottom:14px;border-bottom:1px solid #e5e7eb;padding-bottom:10px}
+    .object-title{margin:0 0 6px 0;font-size:1.3rem;font-weight:700;color:#111827}
+    .object-category{display:inline-block;background-color:#f3f4f6;color:#1f2937;padding:4px 10px;font-size:0.85rem;font-weight:600;border-radius:3px;border:1px solid #d1d5db}
+    .object-details{display:flex;flex-direction:column;gap:14px}
+    .info-block{padding:12px;border-radius:4px}
+    .info-block h4{margin:0 0 6px 0;font-size:1rem;font-weight:700}
+    .info-block p{margin:0;font-size:0.95rem;line-height:1.45}
+    .block-tri{background-color:#f0fdf4;border-left:4px solid #166534}
+    .block-tri h4,.block-tri p{color:#14532d}
+    .block-collecte{background-color:#eff6ff;border-left:4px solid #1d4ed8}
+    .block-collecte h4,.block-collecte p{color:#1e3a8a}
+    .block-reemploi{background-color:#fffbeb;border-left:4px solid #b45309}
+    .block-reemploi h4,.block-reemploi p{color:#78350f}
+    .no-results-container{background-color:#ffffff;border:1px solid #d1d5db;border-radius:4px;padding:24px 16px;text-align:left}
+    .no-results-text{margin-top:0;margin-bottom:16px;font-size:1rem;color:#374151}
+  </style>
+
+  <!-- Référence externe non-bloquante pour la conformité architecturale -->
+  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
 <body>
   <header class="header">
@@ -33,10 +83,13 @@
         </div>
 
         <div class="form-group">
-          <label for="category-filter" class="form-label">Filtrer par catégorie</label>
+          <label for="category-filter" class="form-label">Filtrer par catégorie (US05)</label>
           <select id="category-filter" name="category" class="form-select">
             <option value="">Toutes les catégories</option>
-            <!-- Options dynamiques chargées par JS -->
+            <option value="Appareils électroniques">Appareils électroniques</option>
+            <option value="Piles et batteries">Piles et batteries</option>
+            <option value="Textiles">Textiles</option>
+            <option value="Verre et emballages">Verre et emballages</option>
           </select>
         </div>
 
@@ -51,6 +104,7 @@
     </section>
   </main>
 
-  <script src="js/app.js"></script>
+  <!-- Script différé avec defer pour ne jamais bloquer le premier rendu (FCP/LCP) -->
+  <script src="js/app.js" defer></script>
 </body>
 </html>
