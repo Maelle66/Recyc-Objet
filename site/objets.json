@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "nom": "Pile alcaline",
+    "motsCles": ["pile", "piles", "alcaline"]
+  },
+  {
+    "id": 2,
+    "nom": "Pile rechargeable",
+    "motsCles": ["pile rechargeable", "accumulateur"]
+  },
+  {
+    "id": 3,
+    "nom": "Batterie",
+    "motsCles": ["batterie", "accumulateur"]
+  },
+  {
+    "id": 4,
+    "nom": "Téléphone portable",
+    "motsCles": ["téléphone", "portable", "smartphone"]
+  },
+  {
+    "id": 5,
+    "nom": "Ordinateur",
+    "motsCles": ["ordinateur", "pc"]
+  }
+]
