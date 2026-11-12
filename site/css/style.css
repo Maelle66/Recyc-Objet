@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Recyc'Objet - Feuille de style US-01
+   Recyc'Objet - Feuille de style V1 (US01 à US05)
    Sobriété numérique, accessibilité (WCAG AA) et adaptabilité mobile (360px)
    ========================================================================== */
 
@@ -26,7 +26,7 @@ body {
 /* Conteneur principal adapté aux écrans mobiles dès 360px */
 .container {
   width: 100%;
-  max-width: 600px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 16px;
 }
@@ -44,7 +44,7 @@ body {
   color: #14532d;
 }
 
-/* Section de recherche (Écran E01) */
+/* Section de recherche et filtres */
 .search-section {
   background-color: #ffffff;
   border: 1px solid #d1d5db;
@@ -87,7 +87,8 @@ body {
   color: #111827;
 }
 
-.search-input {
+.form-input,
+.form-select {
   width: 100%;
   min-height: 48px;
   padding: 10px 12px;
@@ -99,9 +100,16 @@ body {
   border-radius: 4px;
 }
 
-.search-input:focus-visible {
+.form-input:focus-visible,
+.form-select:focus-visible {
   outline: 3px solid #15803d;
   outline-offset: 2px;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* Boutons - Taille interactive minimale >= 44px */
@@ -142,19 +150,15 @@ body {
   color: #15803d;
   background-color: #ffffff;
   border: 2px solid #15803d;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .btn-secondary:hover {
   background-color: #f0fdf4;
 }
 
-/* Section des résultats (Écrans E02 et E03) */
+/* Section des résultats */
 .results-section {
-  background-color: #ffffff;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  padding: 20px 16px;
   margin-top: 20px;
 }
 
@@ -162,10 +166,18 @@ body {
   display: none;
 }
 
+.results-summary {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
 .results-title,
 .no-results-title {
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-size: 1.2rem;
   font-weight: 600;
   color: #111827;
@@ -177,22 +189,124 @@ body {
   color: #15803d;
 }
 
-.results-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 16px 0;
+.badge-count {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #374151;
 }
 
-.result-item {
-  padding: 14px 12px;
+/* Liste des cartes d'objets (US01 à US05) */
+.results-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.object-card {
+  background-color: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-left: 6px solid #15803d;
+  border-radius: 4px;
+  padding: 20px 16px;
+}
+
+.object-header {
+  margin-bottom: 14px;
   border-bottom: 1px solid #e5e7eb;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #1f2937;
+  padding-bottom: 10px;
 }
 
-.result-item:last-child {
-  border-bottom: none;
+.object-title {
+  margin: 0 0 6px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.object-category {
+  display: inline-block;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 3px;
+  border: 1px solid #d1d5db;
+}
+
+/* Blocs d'informations détaillées (US02, US03, US04) */
+.object-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-block {
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.info-block h4 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.info-block p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+/* US02 : Consigne de tri */
+.block-tri {
+  background-color: #f0fdf4;
+  border-left: 4px solid #166534;
+}
+
+.block-tri h4 {
+  color: #14532d;
+}
+
+.block-tri p {
+  color: #14532d;
+}
+
+/* US03 : Points de collecte */
+.block-collecte {
+  background-color: #eff6ff;
+  border-left: 4px solid #1d4ed8;
+}
+
+.block-collecte h4 {
+  color: #1e3a8a;
+}
+
+.block-collecte p {
+  color: #1e3a8a;
+}
+
+/* US04 : Réparation et réemploi */
+.block-reemploi {
+  background-color: #fffbeb;
+  border-left: 4px solid #b45309;
+}
+
+.block-reemploi h4 {
+  color: #78350f;
+}
+
+.block-reemploi p {
+  color: #78350f;
+}
+
+/* Écran aucun résultat */
+.no-results-container {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 24px 16px;
+  text-align: left;
 }
 
 .no-results-text {

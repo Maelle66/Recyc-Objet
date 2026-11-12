@@ -2,26 +2,64 @@
   {
     "id": 1,
     "nom": "Pile alcaline",
-    "motsCles": ["pile", "piles", "alcaline"]
+    "categorie": "Piles et batteries",
+    "motsCles": ["pile", "piles", "alcaline"],
+    "consigneTri": "À déposer obligatoirement dans un bac de collecte dédié aux piles. Ne jamais jeter dans la poubelle d'ordures ménagères.",
+    "pointsCollecte": "Bornes en supermarché, mairies, magasins de bricolage et déchèteries municipales.",
+    "solutionsReemploi": "Non rechargeable. Pour limiter les déchets futurs, privilégiez les accumulateurs (piles rechargeables)."
   },
   {
     "id": 2,
     "nom": "Pile rechargeable",
-    "motsCles": ["pile rechargeable", "accumulateur"]
+    "categorie": "Piles et batteries",
+    "motsCles": ["pile rechargeable", "accumulateur", "piles"],
+    "consigneTri": "En fin de vie, déposer dans une borne de collecte pour piles et accumulateurs usagés.",
+    "pointsCollecte": "Supermarchés, magasins spécialisés en électronique et déchèteries.",
+    "solutionsReemploi": "Rechargeable plusieurs centaines de fois avec un chargeur adapté. Vérifiez l'état des contacts avant de la recycler."
   },
   {
     "id": 3,
     "nom": "Batterie",
-    "motsCles": ["batterie", "accumulateur"]
+    "categorie": "Piles et batteries",
+    "motsCles": ["batterie", "accumulateur", "lithium", "vélo"],
+    "consigneTri": "À rapporter en point de collecte spécifique ou en déchèterie. Risque important de départ de feu en cas de mauvais tri.",
+    "pointsCollecte": "Déchèterie municipale, magasins de bricolage, garages et centres auto.",
+    "solutionsReemploi": "Pour les batteries de vélo ou d'outillage, faites appel à un reconditionneur professionnel pour changer uniquement les cellules usées."
   },
   {
     "id": 4,
     "nom": "Téléphone portable",
-    "motsCles": ["téléphone", "portable", "smartphone"]
+    "categorie": "Appareils électroniques",
+    "motsCles": ["téléphone", "portable", "smartphone", "mobile"],
+    "consigneTri": "À déposer dans un bac de collecte DEEE (Déchets d'Équipements Électriques et Électroniques) ou à rapporter en magasin.",
+    "pointsCollecte": "Bacs de reprise en magasins de téléphonie et d'électroménager, points de collecte Ecosystem, déchèteries.",
+    "solutionsReemploi": "S'il fonctionne encore : donnez-le à un proche, une ressourcerie ou une association solidaire (ex: Emmaüs). En cas de panne : faites remplacer la batterie ou l'écran dans un Repair Café ou chez un réparateur labellisé QualiRépar."
   },
   {
     "id": 5,
     "nom": "Ordinateur",
-    "motsCles": ["ordinateur", "pc"]
+    "categorie": "Appareils électroniques",
+    "motsCles": ["ordinateur", "pc", "portable", "écran", "tour"],
+    "consigneTri": "Filière DEEE obligatoire en déchèterie ou reprise gratuite « un pour un » chez votre revendeur informatique.",
+    "pointsCollecte": "Déchèteries équipées DEEE, enseignes d'électroménager et boutiques d'informatique.",
+    "solutionsReemploi": "Nettoyage du système, passage sous un système d'exploitation léger (Linux) ou ajout d'un disque SSD pour prolonger sa durée de vie. Don possible à des associations d'inclusion numérique."
+  },
+  {
+    "id": 6,
+    "nom": "Vêtement en textile",
+    "categorie": "Textiles",
+    "motsCles": ["vêtement", "habit", "pantalon", "chemise", "tissu", "textile"],
+    "consigneTri": "Placer propre et sec dans un sac fermé avant de le déposer dans un conteneur dédié.",
+    "pointsCollecte": "Conteneurs textiles (Le Relais), ressourceries locales, associations caritatives.",
+    "solutionsReemploi": "Réparation (boutons, fermeture éclair, ourlet), customisation, réutilisation en chiffons d'atelier ou don aux associations."
+  },
+  {
+    "id": 7,
+    "nom": "Bocal en verre",
+    "categorie": "Verre et emballages",
+    "motsCles": ["verre", "bocal", "pot", "conserve"],
+    "consigneTri": "Jeter dans le conteneur à verre sans le bouchon ou couvercle (les couvercles métalliques vont dans le bac jaune). Inutile de le laver.",
+    "pointsCollecte": "Colonnes et bornes d'apport volontaire pour le verre.",
+    "solutionsReemploi": "Réutilisable immédiatement pour le stockage alimentaire en vrac, les confitures maison ou les conserves."
   }
 ]
